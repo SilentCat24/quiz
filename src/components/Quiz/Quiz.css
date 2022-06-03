@@ -1,3 +1,4 @@
+/* container part */
 .container{
 display: flex;
 flex-direction: column;
@@ -6,39 +7,67 @@ align-items: center;
 min-height:100vh;
 background-color: #D5DFE5;
 
-
 }
+/* header-part */
+header{
+display:flex;
+padding:0.5rem;
+}
+
+.difficulty{
+  margin:0rem 1rem;
+  background-color: red;
+  width:10rem;
+  height:2rem;
+  margin-top:1.5rem;
+}
+ 
 .question{
   text-align:center;
+  width:25rem;
   background-color: yellowGreen;
   margin:1rem;
   color: antiquewhite;
-  padding:2rem;
+  padding:1rem;
   border-radius: 10px;
+}
+.score{
+  text-align:center;
+  width:5rem;
+  background-color: orange;
+  margin-top:1.5rem;
+
+}
+
+.result{
+  color:black;
+  padding:1rem;
+
 }
 
 .button{
   column-count: 2;
-  padding:100px 520px;
+  padding:10px 420px;
   text-align: center;
-  
+ 
 }
 
 .btn{
 background-color: #4381C1;
 border-radius: 10px;
-width:300px;
+width:200px;
 padding:1rem;
-margin:1.2rem;
+margin:1rem;
 color:white;
-font-weight: 700;
-font-size: 1.2rem;
+font-weight: 600;
+font-size: 1rem;
 border:none;
 
 }
 .btn-primary{
   visibility: hidden;
 }
+
  .btn:hover{
    transform:scale(1.1);
    background-color:#3A606E ;
@@ -46,4 +75,27 @@ border:none;
    transition:transform 200ms ease-in-out ;
    cursor: pointer;
  }
+.bar{
+  background-color: blue;
+  height:1rem;
+  margin-bottom:1rem;
 
+}
+
+.btn-primary{
+  color: black;
+}
+
+.submit{
+  background-color: blue;
+  color: white;
+  padding:1rem;
+  visibility: hidden;
+}
+
+.onSubmit{
+  visibility: display;
+  background-color: blue;
+  color: white;
+  padding:1rem;
+}

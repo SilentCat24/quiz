@@ -7,10 +7,13 @@ function App() {
 const [questions,setQuestions]=useState([]);
 const [currentIndex,setCurrentIndex]=useState(0);
 const [score,setScore]=useState(0);
-const [showAnswers,setAnswers]=useState(false);
+const [submit,setSubmit]=useState('submit')
 const [name,setName]=useState('btn');
+const [width,setWidth]=useState(5)
 const [result,setResult]=useState('');
+const [bar,setBar]=useState(5)
   
+// extracting Data
 useEffect(()=>{
   const questions =Data.map((question)=>({
 ...question,
@@ -18,27 +21,28 @@ answers:[question.correct_answer, ...question.incorrect_answers].sort(()=>Math.r
 
 }))
 setQuestions(questions);
-
 },[]);
 
+// answering section
 const handleAnswer=(answer)=>{
   setName('btn-primary')
+  setSubmit('onSubmit')
   if(answer === questions[currentIndex].correct_answer){
-    setScore(score+1)
-   
+    setScore(score+1)   
   }
  if(answer === questions[currentIndex].correct_answer){
    setResult('true')
  }else{
    setResult('false')
  }
- setAnswers(true);
 }
+// next button question
 const handleNextQuestion = () => {
   setCurrentIndex(currentIndex+1);
   setResult('')
-  setAnswers(false);
+  setSubmit('submit')
   setName('btn')
+  setBar(bar+5)
 
 }
 
@@ -48,6 +52,7 @@ const handleNextQuestion = () => {
   return (
     questions.length > 0 ? (
 <div className='container'>
+
   {currentIndex >= questions.length ? (
 <h1>You score is {score} </h1>): (
 <Quiz handleAnswer={handleAnswer}
@@ -55,9 +60,10 @@ data={questions[currentIndex]}
 result={result}
 score={score}
 handleNextQuestion={handleNextQuestion}
-showAnswers={showAnswers}
 name={name}
-
+currentIndex={currentIndex}
+submit={submit}
+bar={bar}
 />
 
 
